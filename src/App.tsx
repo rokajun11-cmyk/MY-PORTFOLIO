@@ -19,6 +19,7 @@ const BackgroundVideo = () => {
     if (!video || !container) return;
 
     const fadeDuration = 0.8;
+    video.playbackRate = 0.33;
 
     const handleTimeUpdate = () => {
       const duration = video.duration;

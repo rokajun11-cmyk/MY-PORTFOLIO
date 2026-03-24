@@ -38,7 +38,7 @@
   object-fit: cover;
   opacity: 1;
   transition: opacity 0.8s ease;
-  filter: grayscale(1) brightness(0.5) blur(2px);
+  filter: grayscale(1) brightness(0.5) blur(20px);
 }
 
 .bg-video-container.bg-video-ending .bg-video-content {
