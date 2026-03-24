@@ -302,6 +302,18 @@ const ProjectDetailPage = () => {
                 </ul>
               </div>
             )}
+
+            {project.externalLink && (
+              <div>
+                <a
+                  href={project.externalLink.url}
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest border border-border px-4 py-2 hover:opacity-70 transition-opacity duration-500"
+                >
+                  {project.externalLink.label}
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>

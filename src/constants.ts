@@ -11,6 +11,10 @@ export interface Project {
   videoUrl?: string;
   images: string[];
   details?: string[];
+  externalLink?: {
+    label: string;
+    url: string;
+  };
 }
 
 import go0 from '../go0.jpg';
@@ -105,7 +109,11 @@ export const PROJECTS: Project[] = [
     details: [
       'プレイヤーが描いた簡筆画の特徴を解析し、動物の種別、体型、移動速度、性格などを判別。',
       'AIを用いたデザイン表現の可能性と実用性について検証する試み。'
-    ]
+    ],
+    externalLink: {
+      label: 'Visit Website',
+      url: 'https://little-zoo-rokajuns-projects.vercel.app?_vercel_share=sdJ456sb0XDxJK5JdBhlv8C1FeI9RVe8'
+    }
   },
   {
     id: 'music-theory-king',
