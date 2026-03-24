@@ -49,6 +49,12 @@
   opacity: 0;
 }
 
+.home-page {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 .contact-link {
   opacity: 0.7;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);

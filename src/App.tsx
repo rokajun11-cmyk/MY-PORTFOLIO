@@ -415,12 +415,14 @@ const ContactPage = () => {
 const AppShell = () => {
   const location = useLocation();
   const isProjectPage = location.pathname.startsWith('/project/');
+  const isHomePage = location.pathname === '/';
 
   return (
     <div
       className={cn(
         "min-h-screen bg-bg selection:bg-ink selection:text-bg",
-        isProjectPage && "project-page"
+        isProjectPage && "project-page",
+        isHomePage && "home-page"
       )}
     >
       <BackgroundVideo />
