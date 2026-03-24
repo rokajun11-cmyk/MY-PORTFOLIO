@@ -4,6 +4,7 @@ import { Menu, X, Mail, Phone, Instagram, ArrowRight, ArrowUpRight } from 'lucid
 import { useState, useEffect } from 'react';
 import { PROJECTS, Project } from './constants';
 import { cn } from './lib/utils';
+import profileImage from '../改.png';
 
 // --- Components ---
 
@@ -280,7 +281,7 @@ const ProfilePage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <div className="aspect-[3/4] overflow-hidden bg-zinc-100">
           <img 
-            src="https://picsum.photos/seed/lyu/800/1000" 
+            src={profileImage} 
             alt="Lyu Jiachun" 
             className="w-full h-full object-cover"
             referrerPolicy="strict-origin-when-cross-origin"
