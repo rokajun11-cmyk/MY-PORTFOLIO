@@ -13,6 +13,19 @@ export interface Project {
   details?: string[];
 }
 
+import go0 from '../go0.jpg';
+import go1 from '../go1.png';
+import go2 from '../go2.png';
+import a0 from '../A0.jpg';
+import a1 from '../A1.png';
+import a2 from '../A2.png';
+import a3 from '../A3.png';
+import b0 from '../B0.jpg';
+import b1 from '../B1.png';
+import b2 from '../B2.png';
+import b3 from '../B3.png';
+import b4 from '../B4.png';
+
 export const PROJECTS: Project[] = [
   {
     id: 'go-around-mobius',
@@ -22,12 +35,11 @@ export const PROJECTS: Project[] = [
     category: 'Animation',
     description: '「すべてのものは流れ去り、すべてのものは還る。存在の輪は絶えず回り続ける。」ニーチェの「永遠回帰」の思想を出発点として制作された短編作品。',
     technique: 'ワンカットの実験 (One-cut experiment), ループの実験, 素材叠加の試み',
-    thumbnail: 'https://picsum.photos/seed/mobius-sketch/800/600',
+    thumbnail: go0,
     videoUrl: 'https://www.youtube.com/embed/9UzdFz5dF_g',
     images: [
-      'https://picsum.photos/seed/mobius-1/1200/800',
-      'https://picsum.photos/seed/mobius-2/1200/800',
-      'https://picsum.photos/seed/mobius-3/1200/800'
+      go1,
+      go2
     ],
     details: [
       'トレーシングペーパーに即興的に描いた移り変わる風景を、メビウスの輪として表現。',
@@ -44,13 +56,13 @@ export const PROJECTS: Project[] = [
     category: 'Animation',
     description: '保存していた古いものがいつの間にか消えてしまったことに気づき、成長過程における「喪失」と「変化」を表現した作品。',
     technique: '手描きアニメーション + 実写映像, 3D補助, ロトスコープ, ストップモーション',
-    thumbnail: 'https://images.weserv.nl/?url=storage.googleapis.com/static-assets-public/ais-studio-build/user-uploads/wk53cnsk2ismmxbyiujsma/3067f53a-c840-4200-9283-36034177726f/0.png',
+    thumbnail: b0,
     videoUrl: 'https://www.youtube.com/embed/FXDzTNicqH0',
     images: [
-      'https://images.weserv.nl/?url=storage.googleapis.com/static-assets-public/ais-studio-build/user-uploads/wk53cnsk2ismmxbyiujsma/3067f53a-c840-4200-9283-36034177726f/1.png',
-      'https://images.weserv.nl/?url=storage.googleapis.com/static-assets-public/ais-studio-build/user-uploads/wk53cnsk2ismmxbyiujsma/3067f53a-c840-4200-9283-36034177726f/2.png',
-      'https://images.weserv.nl/?url=storage.googleapis.com/static-assets-public/ais-studio-build/user-uploads/wk53cnsk2ismmxbyiujsma/3067f53a-c840-4200-9283-36034177726f/3.png',
-      'https://images.weserv.nl/?url=storage.googleapis.com/static-assets-public/ais-studio-build/user-uploads/wk53cnsk2ismmxbyiujsma/3067f53a-c840-4200-9283-36034177726f/4.png'
+      b1,
+      b2,
+      b3,
+      b4
     ],
     details: [
       '手描きアニメーションと実写映像を結合し、自身の成長過程を表現。',
@@ -66,11 +78,12 @@ export const PROJECTS: Project[] = [
     category: 'Animation',
     description: '幼い頃の暗黒恐怖の記憶に基づいて作られた短編映画。黄色と青を大量に使用して光と暗を体現。',
     technique: '手描き, 実写映像, AE合成',
-    thumbnail: 'https://picsum.photos/seed/light-off-blue/800/600',
+    thumbnail: a0,
     videoUrl: 'https://www.youtube.com/embed/1zhMDnN15iQ',
     images: [
-      'https://picsum.photos/seed/light-1/1200/800',
-      'https://picsum.photos/seed/light-2/1200/800'
+      a1,
+      a2,
+      a3
     ],
     details: [
       '子供向けのキャラクターとシーンデザインを採用し、子供の視点を再現。',
