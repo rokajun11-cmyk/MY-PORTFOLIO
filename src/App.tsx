@@ -396,9 +396,9 @@ const ContactPage = () => {
           <div className="block">
             <p className="text-xs uppercase tracking-widest text-muted mb-2">Social</p>
             <div className="flex gap-8">
-              <a href="#" className="text-base font-serif contact-link">Instagram</a>
-              <a href="#" className="text-base font-serif contact-link">Vimeo</a>
-              <a href="#" className="text-base font-serif contact-link">LinkedIn</a>
+              <a href="https://www.instagram.com/kajun_nnn?igsh=MW5tY3R5cndpc3hmdg%3D%3D&utm_source=qr" className="text-base font-serif contact-link">Instagram</a>
+              <a href="https://vimeo.com/user136057454?fl=pp&fe=sh" className="text-base font-serif contact-link">Vimeo</a>
+              <a href="https://line.me/ti/p/JloExy_RXt" className="text-base font-serif contact-link">LINE</a>
             </div>
           </div>
           
@@ -412,29 +412,42 @@ const ContactPage = () => {
   );
 };
 
+const AppShell = () => {
+  const location = useLocation();
+  const isProjectPage = location.pathname.startsWith('/project/');
+
+  return (
+    <div
+      className={cn(
+        "min-h-screen bg-bg selection:bg-ink selection:text-bg",
+        isProjectPage && "project-page"
+      )}
+    >
+      <BackgroundVideo />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/project/:id" element={<ProjectDetailPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+      
+      <footer className="px-6 md:px-12 py-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6 text-xs uppercase tracking-widest text-muted">
+        <p>© 2026 Lyu Jiachun. All Rights Reserved.</p>
+        <div className="flex gap-8">
+          <Link to="/" className="hover:text-ink transition-colors duration-500">Works</Link>
+          <Link to="/profile" className="hover:text-ink transition-colors duration-500">Profile</Link>
+          <Link to="/contact" className="hover:text-ink transition-colors duration-500">Contact</Link>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-bg selection:bg-ink selection:text-bg">
-        <BackgroundVideo />
-        <div className="top-gradient-mask" />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/project/:id" element={<ProjectDetailPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-        
-        <footer className="px-6 md:px-12 py-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6 text-xs uppercase tracking-widest text-muted">
-          <p>© 2026 Lyu Jiachun. All Rights Reserved.</p>
-          <div className="flex gap-8">
-            <Link to="/" className="hover:text-ink transition-colors duration-500">Works</Link>
-            <Link to="/profile" className="hover:text-ink transition-colors duration-500">Profile</Link>
-            <Link to="/contact" className="hover:text-ink transition-colors duration-500">Contact</Link>
-          </div>
-        </footer>
-      </div>
+      <AppShell />
     </Router>
   );
 }
