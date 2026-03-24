@@ -1,18 +1,56 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Mail, Phone, Instagram, ArrowRight, ArrowUpRight } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { PROJECTS, Project } from './constants';
 import { cn } from './lib/utils';
 import profileImage from '../改.png';
+import backgroundVideo from '../背景.mp4';
 
 // --- Components ---
 
 const BackgroundVideo = () => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const container = containerRef.current;
+    if (!video || !container) return;
+
+    const fadeDuration = 0.8;
+
+    const handleTimeUpdate = () => {
+      const duration = video.duration;
+      if (!Number.isFinite(duration) || duration <= 0) return;
+      const timeLeft = duration - video.currentTime;
+      if (timeLeft <= fadeDuration) {
+        container.classList.add('bg-video-ending');
+      } else {
+        container.classList.remove('bg-video-ending');
+      }
+    };
+
+    const handleSeeked = () => {
+      if (video.currentTime < 0.1) {
+        container.classList.remove('bg-video-ending');
+      }
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('seeked', handleSeeked);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('seeked', handleSeeked);
+    };
+  }, []);
+
   return (
-    <div id="bg-video-container" className="bg-video-container">
+    <div ref={containerRef} id="bg-video-container" className="bg-video-container">
       <video
-        src="https://assets.mixkit.co/videos/preview/mixkit-blue-crystal-like-light-leak-4522-large.mp4"
+        ref={videoRef}
+        src={backgroundVideo}
         autoPlay
         muted
         loop
