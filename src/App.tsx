@@ -149,7 +149,10 @@ const ProjectCard = ({ project, index }: { project: Project; index: number; key?
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="group relative aspect-[4/5] overflow-hidden bg-zinc-100"
+      className={cn(
+        "group relative aspect-[4/5] overflow-hidden",
+        project.thumbnailStyle === 'icon' ? "bg-transparent" : "bg-zinc-100"
+      )}
     >
       <Link to={`/project/${project.id}`}>
         {project.videoThumbnail ? (
@@ -166,7 +169,11 @@ const ProjectCard = ({ project, index }: { project: Project; index: number; key?
             <img 
               src={project.thumbnail} 
               alt={project.title}
-              className="w-2/3 h-2/3 object-contain transition-transform duration-700 group-hover:scale-105"
+              style={{
+                width: `${(project.thumbnailScale ?? 0.66) * 100}%`,
+                height: `${(project.thumbnailScale ?? 0.66) * 100}%`
+              }}
+              className="object-contain transition-transform duration-700 group-hover:scale-105"
               referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>

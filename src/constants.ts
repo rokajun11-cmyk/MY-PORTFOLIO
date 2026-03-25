@@ -8,6 +8,7 @@ export interface Project {
   category: 'Animation' | 'Design' | 'Client Work';
   thumbnail: string;
   thumbnailStyle?: 'cover' | 'icon';
+  thumbnailScale?: number;
   videoThumbnail?: string;
   videoUrl?: string;
   images: string[];
@@ -110,6 +111,7 @@ export const PROJECTS: Project[] = [
     technique: 'Web Design, AI Integration',
     thumbnail: z0,
     thumbnailStyle: 'icon',
+    thumbnailScale: 0.66,
     images: [
       z1,
       z2,
@@ -133,6 +135,7 @@ export const PROJECTS: Project[] = [
     technique: 'UI Design, HTML/JavaScript',
     thumbnail: m0,
     thumbnailStyle: 'icon',
+    thumbnailScale: 0.5,
     images: [
       'https://picsum.photos/seed/music-app-1/1200/800',
       'https://picsum.photos/seed/music-app-2/1200/800'
