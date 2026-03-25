@@ -75,7 +75,7 @@ export const PROJECTS: Project[] = [
     description: '保存していた古いものがいつの間にか消えてしまったことに気づき、成長過程における「喪失」と「変化」を表現した作品。',
     technique: '手描きアニメーション + 実写映像, 3D補助, ロトスコープ, ストップモーション',
     thumbnail: b0,
-    videoUrl: 'https://www.youtube.com/embed/FXDzTNicqH0',
+    videoUrl: 'https://www.youtube.com/embed/HZSE1tKtVyI',
     images: [
       b1,
       b2,
@@ -97,7 +97,7 @@ export const PROJECTS: Project[] = [
     description: '幼い頃の暗黒恐怖の記憶に基づいて作られた短編映画。黄色と青を大量に使用して光と暗を体現。',
     technique: '手描き, 実写映像, AE合成',
     thumbnail: a0,
-    videoUrl: 'https://www.youtube.com/embed/1zhMDnN15iQ',
+    videoUrl: 'https://www.youtube.com/embed/SmVgtUIzETU',
     images: [
       a1,
       a2,
