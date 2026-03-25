@@ -475,6 +475,7 @@ const AppShell = () => {
       )}
     >
       <BackgroundVideo />
+      <div className="top-gradient-mask" />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
