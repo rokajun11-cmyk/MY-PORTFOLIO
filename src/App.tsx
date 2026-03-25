@@ -292,7 +292,12 @@ const ProjectDetailPage = () => {
                 key={i} 
                 src={img} 
                 alt={`${project.title} ${i}`} 
-                className="w-full aspect-[4/3] object-cover"
+                className={cn(
+                  "w-full",
+                  project.id === 'music-theory-king'
+                    ? "h-auto object-contain"
+                    : "aspect-[4/3] object-cover"
+                )}
                 referrerPolicy="strict-origin-when-cross-origin"
               />
             ))}

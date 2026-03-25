@@ -41,7 +41,6 @@ import z2 from '../z2.jpg';
 import z3 from '../z3.png';
 import m0 from '../m0.png';
 import m1 from '../m1.png';
-import m2 from '../m2.jpg';
 import m3 from '../m3.jpg';
 import m4 from '../m4.jpg';
 
@@ -146,7 +145,6 @@ export const PROJECTS: Project[] = [
     thumbnailScale: 0.5,
     images: [
       m1,
-      m2,
       m3,
       m4
     ],
