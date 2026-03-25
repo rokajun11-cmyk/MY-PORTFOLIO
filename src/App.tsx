@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation, useParams } 
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Mail, Phone, Instagram, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { PROJECTS, Project } from './constants';
 import { cn } from './lib/utils';
 import profileImage from '../改.png';
@@ -84,7 +85,7 @@ const Navbar = () => {
     }
   }, [isOpen]);
 
-  return (
+  const nav = (
     <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 md:px-12 flex justify-between items-center text-white pointer-events-none">
       <Link to="/" className="text-lg md:text-2xl font-display font-semibold tracking-tighter hover:opacity-50 transition-opacity duration-500 pointer-events-auto">
         LYU JIACHUN
@@ -142,6 +143,9 @@ const Navbar = () => {
       </AnimatePresence>
     </nav>
   );
+
+  if (typeof document === 'undefined') return nav;
+  return createPortal(nav, document.body);
 };
 
 const ProjectCard = ({ project, index }: { project: Project; index: number; key?: string | number }) => {
