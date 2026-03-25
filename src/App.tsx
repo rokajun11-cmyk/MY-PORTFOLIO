@@ -108,7 +108,7 @@ const Navbar = () => {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="fixed inset-0 bg-black/20 backdrop-blur-xl text-white flex flex-col items-center justify-center z-40 pointer-events-auto"
           >
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.path}
