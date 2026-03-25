@@ -275,6 +275,7 @@ const ProjectDetailPage = () => {
               <iframe 
                 src={project.videoUrl} 
                 className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 title={project.title}
               />
