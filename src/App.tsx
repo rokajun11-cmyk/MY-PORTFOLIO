@@ -246,6 +246,14 @@ const ProjectDetailPage = () => {
   const project = PROJECTS.find(p => p.id === id);
 
   if (!project) return <div className="pt-32 px-12">Project not found.</div>;
+  const heroImage =
+    project.thumbnailStyle === 'icon' && project.images.length > 0
+      ? project.images[0]
+      : project.thumbnail;
+  const galleryImages =
+    project.thumbnailStyle === 'icon' && project.images.length > 0
+      ? project.images.slice(1)
+      : project.images;
 
   return (
     <motion.div 
@@ -271,7 +279,7 @@ const ProjectDetailPage = () => {
             </div>
           ) : (
             <img 
-              src={project.thumbnail} 
+              src={heroImage} 
               alt={project.title} 
               className="w-full aspect-video object-cover mb-8"
               referrerPolicy="strict-origin-when-cross-origin"
@@ -279,7 +287,7 @@ const ProjectDetailPage = () => {
           )}
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {project.images.map((img, i) => (
+            {galleryImages.map((img, i) => (
               <img 
                 key={i} 
                 src={img} 
