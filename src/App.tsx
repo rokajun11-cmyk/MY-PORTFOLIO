@@ -297,7 +297,7 @@ const ProjectDetailPage = () => {
                 alt={`${project.title} ${i}`} 
                 className={cn(
                   "w-full",
-                  project.id === 'music-theory-king'
+                  project.id === 'music-theory-king' || project.id === 'little-zoo'
                     ? "h-auto object-contain"
                     : "aspect-[4/3] object-cover"
                 )}
