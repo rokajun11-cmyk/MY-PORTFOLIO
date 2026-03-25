@@ -328,6 +328,17 @@ const ProjectDetailPage = () => {
                   {project.externalLink.label}
                   <ArrowUpRight size={14} />
                 </a>
+                {project.secondaryLink && (
+                  <p className="text-xs text-muted mt-3">
+                    {project.secondaryLink.label}{' '}
+                    <a
+                      href={project.secondaryLink.url}
+                      className="underline underline-offset-4 hover:opacity-70 transition-opacity duration-500"
+                    >
+                      {project.secondaryLink.url}
+                    </a>
+                  </p>
+                )}
               </div>
             )}
           </div>
