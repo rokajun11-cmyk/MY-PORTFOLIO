@@ -153,14 +153,14 @@ export const PROJECTS: Project[] = [
     details: [
       '音程関係の記憶およびテスト機能、ギター指板上のポジションを覚えるための機能を搭載。',
       'AIによるプログラミング支援ツールを活用して実装。',
-      '运用ai来实现对歌曲和弦走向的分析，帮助理解音乐。'
+      'AIを用いて楽曲のコード進行を解析し、音楽理解をサポート。'
     ],
     externalLink: {
       label: 'Visit Website',
       url: 'https://rokajun11-cmyk.github.io/music-theory-king/'
     },
     secondaryLink: {
-      label: '软件正在测试升级中，此为之前版本，测试版本地址',
+      label: 'ソフトウェアは現在テスト中のアップデート版へ移行中。こちらは以前のバージョンです。テスト版はこちら',
       url: 'https://music-theory-king-pro.pages.dev/'
     }
   }
