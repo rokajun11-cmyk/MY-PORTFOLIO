@@ -34,7 +34,7 @@ import b4 from '../B4.png';
 import z0 from '../z0.png';
 import z1 from '../z1.png';
 import z2 from '../z2.jpg';
-import z3 from '../z3.jpg';
+import z3 from '../z3.png';
 import m0 from '../m0.png';
 import m1 from '../m1.png';
 import m2 from '../m2.jpg';
