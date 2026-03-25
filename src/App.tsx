@@ -108,32 +108,34 @@ const Navbar = () => {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="fixed inset-0 bg-black/20 backdrop-blur-xl text-white flex flex-col items-center justify-center z-40 pointer-events-auto"
           >
-            <div className="flex flex-col items-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.path}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ 
-                    delay: i * 0.1 + 0.2, 
-                    duration: 0.8, 
-                    ease: [0.4, 0, 0.2, 1] 
-                  }}
-                  className="pointer-events-auto"
-                >
-                  <Link 
-                    to={link.path} 
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "text-3xl md:text-5xl font-display italic hover:tracking-widest transition-all duration-700",
-                      location.pathname === link.path && "underline underline-offset-[12px] decoration-1"
-                    )}
+            <div className="fixed inset-0 flex items-center justify-center">
+              <div className="flex flex-col items-center gap-8">
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.path}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ 
+                      delay: i * 0.1 + 0.2, 
+                      duration: 0.8, 
+                      ease: [0.4, 0, 0.2, 1] 
+                    }}
+                    className="pointer-events-auto"
                   >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link 
+                      to={link.path} 
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "text-3xl md:text-5xl font-display italic hover:tracking-widest transition-all duration-700",
+                        location.pathname === link.path && "underline underline-offset-[12px] decoration-1"
+                      )}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
