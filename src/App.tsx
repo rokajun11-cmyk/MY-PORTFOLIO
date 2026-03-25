@@ -345,13 +345,14 @@ const ProfilePage = () => {
           
           <div className="space-y-6 text-muted leading-relaxed">
             <p>
-              Born in 2000, Lyu Jiachun is an animation artist whose work explores the intersection of traditional hand-drawn techniques and digital experimentation.
+              Born in 2000, working as an animation artist at the intersection of traditional hand-drawn techniques and digital experimentation.
             </p>
             <p>
-              His practice often centers on philosophical themes such as "Eternal Return" and the passage of time, translated through experimental formats like one-cut animations and loop structures.
+              The practice centers on philosophical themes such as “Eternal Return” and the passage of time, explored through experimental formats including one-cut animations and loop structures.
             </p>
             <p>
-              His debut work "When the Light Off" (2022) received international recognition, being nominated for several film festivals including the Animur Film Festival and kinovertikal. He continues to push the boundaries of spatial expression and narrative through a multidisciplinary approach involving 3D assistance, rotoscoping, and UI design.
+              When the Light Off (2022) received international recognition, with nominations at festivals such as Animur Film Festival and kinovertikal.
+              Current work continues to explore spatial expression and narrative through a multidisciplinary approach involving 3D assistance, rotoscoping, and UI design.
             </p>
           </div>
 
