@@ -36,6 +36,10 @@ import z1 from '../z1.png';
 import z2 from '../z2.jpg';
 import z3 from '../z3.jpg';
 import m0 from '../m0.png';
+import m1 from '../m1.png';
+import m2 from '../m2.jpg';
+import m3 from '../m3.jpg';
+import m4 from '../m4.jpg';
 
 export const PROJECTS: Project[] = [
   {
@@ -137,8 +141,10 @@ export const PROJECTS: Project[] = [
     thumbnailStyle: 'icon',
     thumbnailScale: 0.5,
     images: [
-      'https://picsum.photos/seed/music-app-1/1200/800',
-      'https://picsum.photos/seed/music-app-2/1200/800'
+      m1,
+      m2,
+      m3,
+      m4
     ],
     details: [
       '音程関係の記憶およびテスト機能、ギター指板上のポジションを覚えるための機能を搭載。',
