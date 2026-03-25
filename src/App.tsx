@@ -161,6 +161,15 @@ const ProjectCard = ({ project, index }: { project: Project; index: number; key?
             playsInline
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
+        ) : project.thumbnailStyle === 'icon' ? (
+          <div className="w-full h-full flex items-center justify-center">
+            <img 
+              src={project.thumbnail} 
+              alt={project.title}
+              className="w-2/3 h-2/3 object-contain transition-transform duration-700 group-hover:scale-105"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          </div>
         ) : (
           <img 
             src={project.thumbnail} 

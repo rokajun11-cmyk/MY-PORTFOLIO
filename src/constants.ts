@@ -7,6 +7,7 @@ export interface Project {
   technique?: string;
   category: 'Animation' | 'Design' | 'Client Work';
   thumbnail: string;
+  thumbnailStyle?: 'cover' | 'icon';
   videoThumbnail?: string;
   videoUrl?: string;
   images: string[];
@@ -29,9 +30,11 @@ import b1 from '../B1.png';
 import b2 from '../B2.png';
 import b3 from '../B3.png';
 import b4 from '../B4.png';
+import z0 from '../z0.png';
 import z1 from '../z1.png';
 import z2 from '../z2.jpg';
 import z3 from '../z3.jpg';
+import m0 from '../m0.png';
 
 export const PROJECTS: Project[] = [
   {
@@ -105,7 +108,8 @@ export const PROJECTS: Project[] = [
     category: 'Design',
     description: 'AI機能を基盤として企画したWebゲーム。プレイヤーが描いた線画が同一の世界の中で生活し、他者と出会い、やがて死を迎える。',
     technique: 'Web Design, AI Integration',
-    thumbnail: 'https://picsum.photos/seed/web-zoo/800/600',
+    thumbnail: z0,
+    thumbnailStyle: 'icon',
     images: [
       z1,
       z2,
@@ -127,7 +131,8 @@ export const PROJECTS: Project[] = [
     category: 'Design',
     description: 'ジャズギターの学習を進める中で、音楽理論の記憶をサポートするために制作したWebアプリケーション。',
     technique: 'UI Design, HTML/JavaScript',
-    thumbnail: 'https://picsum.photos/seed/music-ui/800/600',
+    thumbnail: m0,
+    thumbnailStyle: 'icon',
     images: [
       'https://picsum.photos/seed/music-app-1/1200/800',
       'https://picsum.photos/seed/music-app-2/1200/800'
