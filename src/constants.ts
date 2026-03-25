@@ -29,6 +29,9 @@ import b1 from '../B1.png';
 import b2 from '../B2.png';
 import b3 from '../B3.png';
 import b4 from '../B4.png';
+import z1 from '../z1.png';
+import z2 from '../z2.jpg';
+import z3 from '../z3.jpg';
 
 export const PROJECTS: Project[] = [
   {
@@ -104,7 +107,9 @@ export const PROJECTS: Project[] = [
     technique: 'Web Design, AI Integration',
     thumbnail: 'https://picsum.photos/seed/web-zoo/800/600',
     images: [
-      'https://picsum.photos/seed/zoo-ui/1200/800'
+      z1,
+      z2,
+      z3
     ],
     details: [
       'プレイヤーが描いた簡筆画の特徴を解析し、動物の種別、体型、移動速度、性格などを判別。',
