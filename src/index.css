@@ -111,6 +111,59 @@
   }
 }
 
+/* App-icon thumbnails. On phones the card is short and the icon is bound by
+   width; from md up it follows the per-project --icon-scale so each icon keeps
+   the optical weight it was tuned for. */
+.icon-thumb {
+  max-width: 62%;
+  max-height: 78%;
+}
+
+@media (min-width: 768px) {
+  .icon-thumb {
+    max-width: calc(var(--icon-scale, 0.5) * 100%);
+    max-height: calc(var(--icon-scale, 0.5) * 100%);
+  }
+}
+
+/* Playfair Display and Cormorant have no CJK glyphs, so Japanese and Chinese
+   fall back to a system face and italic becomes a synthesised slant — which
+   looks broken at display sizes. Swap in a CJK serif and drop the italic. */
+html[lang="ja"] .display-cjk,
+html[lang="zh-Hans"] .display-cjk {
+  font-style: normal;
+  letter-spacing: 0.02em;
+}
+
+html[lang="ja"] .display-cjk {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+}
+
+html[lang="zh-Hans"] .display-cjk {
+  font-family: "Songti SC", "Noto Serif SC", "Source Han Serif SC", serif;
+}
+
+/* Latin runs inside a CJK heading (film titles, romanised name) keep the
+   display face rather than borrowing the CJK serif's Latin glyphs. */
+html[lang="ja"] .display-cjk:lang(en),
+html[lang="zh-Hans"] .display-cjk:lang(en) {
+  font-family: var(--font-display);
+}
+
+/* 「お問い合わせ ：）」 is 6 full-width characters plus the emoticon — at
+   text-5xl that overflows a 375px screen and orphans the emoticon on its own
+   line. Japanese only; the shorter Chinese heading fits as-is. */
+@media (max-width: 767px) {
+  html[lang="ja"] .contact-title {
+    font-size: 2.5rem;
+    line-height: 1.15;
+  }
+
+  html[lang="ja"] .contact-emoticon {
+    font-size: 1.5rem;
+  }
+}
+
 .perspective-1000 {
   perspective: 1000px;
 }
