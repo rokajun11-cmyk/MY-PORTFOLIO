@@ -11,6 +11,9 @@ export interface Project {
   technique?: Localized;
   category: Category;
   thumbnail: string;
+  /** Shown instead of `thumbnail` under the dark theme, where an app ships a
+   *  dark-appearance icon of its own. Falls back to `thumbnail` when absent. */
+  thumbnailDark?: string;
   thumbnailStyle?: 'cover' | 'icon';
   thumbnailScale?: number;
   videoThumbnail?: string;
@@ -46,6 +49,7 @@ import m1 from '../m1.png';
 import m3 from '../m3.jpg';
 import m4 from '../m4.jpg';
 import p0 from '../p0.png';
+import p0d from '../p0d.png';
 import p1 from '../p1.png';
 import p2 from '../p2.png';
 import p3 from '../p3.png';
@@ -284,6 +288,7 @@ export const PROJECTS: Project[] = [
       zh: 'SwiftUI、Cloudflare Workers、LLM + 语音合成、StoreKit 2、iCloud 同步',
     },
     thumbnail: p0,
+    thumbnailDark: p0d,
     thumbnailStyle: 'icon',
     thumbnailScale: 0.5,
     images: [p1, p2, p3, p4],
@@ -316,10 +321,15 @@ export const PROJECTS: Project[] = [
         '设计、代码、图标到商店文案全部自己做。名字来自「临时抱佛脚」。',
       ],
     },
+    externalLink: {
+      label: { en: 'Get it on the App Store', ja: 'App Store で入手', zh: '在 App Store 下载' },
+      // Region-neutral: Apple redirects to the visitor's own storefront.
+      url: 'https://apps.apple.com/app/id6790152322',
+    },
     note: {
-      en: 'In preparation for the App Store.',
-      ja: 'App Store 申請の準備中です。',
-      zh: '正在准备上架 App Store。',
+      en: 'On the App Store since August 2026 — still listed under its launch name, “Cram Japanese”, until the next update.',
+      ja: '2026年8月から App Store で公開中。ストアの表記は次のアップデートまでリリース時の「Cram Japanese」のままです。',
+      zh: '2026 年 8 月起在 App Store 上线。商店页面到下次更新前仍显示发布时的名字「抱佛腳日語」。',
     },
   },
 ];

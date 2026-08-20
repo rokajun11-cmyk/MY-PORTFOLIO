@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowRight, ArrowUpRight, Sun, Moon } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { PROJECTS, Project, Category } from './constants';
@@ -13,6 +13,7 @@ import {
   useT,
   type Localized,
 } from './i18n';
+import { ThemeProvider, useTheme } from './theme';
 import { cn } from './lib/utils';
 import profileImage from '../改.png';
 import backgroundVideo from '../背景.mp4';
@@ -108,6 +109,21 @@ const LanguageSwitch = () => {
   );
 };
 
+const ThemeToggle = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+      className="opacity-40 hover:opacity-100 transition-opacity duration-500 pointer-events-auto"
+    >
+      {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+    </button>
+  );
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -132,13 +148,14 @@ const Navbar = () => {
   }, [isOpen]);
 
   const nav = (
-    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 md:px-12 flex justify-between items-center text-white pointer-events-none">
+    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 md:px-12 flex justify-between items-center text-ink pointer-events-none">
       <Link to="/" className="text-lg md:text-2xl font-display font-semibold tracking-tighter hover:opacity-50 transition-opacity duration-500 pointer-events-auto">
         LYU JIACHUN
       </Link>
 
       <div className="flex items-center gap-5 md:gap-8">
         <LanguageSwitch />
+        <ThemeToggle />
 
         {/* Menu Toggle - Always visible for "sidebar" feel */}
         <button
@@ -158,7 +175,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-            className="fixed inset-0 bg-black/20 backdrop-blur-xl text-white flex flex-col items-center justify-center z-40 pointer-events-auto"
+            className="fixed inset-0 bg-bg/20 backdrop-blur-xl text-ink flex flex-col items-center justify-center z-40 pointer-events-auto"
           >
             <div className="fixed inset-0 flex items-center justify-center">
               <div className="flex flex-col items-center gap-8">
@@ -202,8 +219,11 @@ const Navbar = () => {
 const ProjectCard = ({ project, index }: { project: Project; index: number; key?: string | number }) => {
   const t = useT();
   const l = useLocalized();
+  const { theme } = useTheme();
   const isIcon = project.thumbnailStyle === 'icon';
   const title = l(project.title);
+  // Apps that ship a dark-appearance icon use it under the dark theme.
+  const thumbnail = theme === 'dark' && project.thumbnailDark ? project.thumbnailDark : project.thumbnail;
 
   const caption = (
     <>
@@ -231,13 +251,13 @@ const ProjectCard = ({ project, index }: { project: Project; index: number; key?
           // no blur — those exist to make text readable over a photo.
           <div className="w-full h-full flex items-center justify-center">
             <img
-              src={project.thumbnail}
+              src={thumbnail}
               alt={title}
               style={{ ['--icon-scale' as string]: String(project.thumbnailScale ?? 0.66) }}
               className="icon-thumb object-contain transition-transform duration-700 group-hover:scale-[1.08]"
               referrerPolicy="strict-origin-when-cross-origin"
             />
-            <div className="absolute inset-x-0 bottom-0 px-6 pb-6 text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <div className="absolute inset-x-0 bottom-0 px-6 pb-6 text-center text-ink opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               {caption}
             </div>
           </div>
@@ -254,7 +274,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number; key?
               />
             ) : (
               <img
-                src={project.thumbnail}
+                src={thumbnail}
                 alt={title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -573,10 +593,12 @@ const AppShell = () => {
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <Router>
-        <AppShell />
-      </Router>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <Router>
+          <AppShell />
+        </Router>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }

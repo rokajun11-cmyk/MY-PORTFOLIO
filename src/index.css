@@ -111,6 +111,56 @@
   }
 }
 
+/* Light theme. Dark is the stylesheet's baseline; every value here is the
+   literal inverse of its dark counterpart, including the background video —
+   the request was "just invert it". Only [data-theme="light"] is set, so the
+   dark rules above need no guard. */
+:root[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-ink: #000000;
+  --color-muted: #5e5e55;
+  --color-border: #d8d8d5;
+}
+
+:root[data-theme="light"] .bg-video-container {
+  background: white;
+}
+
+:root[data-theme="light"] .bg-video-content {
+  /* grayscale → darken → invert lands on a pale grey, the mirror of the dark
+     theme's near-black. Brightness has to come before invert to survive it. */
+  filter: grayscale(1) brightness(0.5) invert(1) blur(20px);
+}
+
+/* Dark fades the backdrop toward black; light has to fade it toward white,
+   so these brightnesses go up rather than down. */
+:root[data-theme="light"] .bg-video-container.menu-open {
+  filter: blur(10px) brightness(1.45);
+}
+
+:root[data-theme="light"] .bg-video-container.bg-video-ending {
+  filter: blur(12px) brightness(1.55);
+}
+
+:root[data-theme="light"] .home-page {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+:root[data-theme="light"] .top-gradient-mask {
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.5) 30%,
+    rgba(255, 255, 255, 0.2) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* The dark theme's white glow reads as dirt on white. Opacity alone carries
+   the hover state here. */
+:root[data-theme="light"] .contact-link:hover {
+  text-shadow: none;
+}
+
 /* App-icon thumbnails. On phones the card is short and the icon is bound by
    width; from md up it follows the per-project --icon-scale so each icon keeps
    the optical weight it was tuned for. */
