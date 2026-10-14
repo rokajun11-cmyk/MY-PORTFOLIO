@@ -54,6 +54,16 @@ import p1 from '../p1.png';
 import p2 from '../p2.png';
 import p3 from '../p3.png';
 import p4 from '../p4.png';
+import d0 from '../d0.png';
+import d1 from '../d1.png';
+import d2 from '../d2.png';
+import d3 from '../d3.png';
+import c0 from '../c0.png';
+import c0d from '../c0d.png';
+import c1 from '../c1.jpg';
+import c2 from '../c2.jpg';
+import c3 from '../c3.jpg';
+import c4 from '../c4.png';
 
 export const PROJECTS: Project[] = [
   {
@@ -263,13 +273,13 @@ export const PROJECTS: Project[] = [
       ],
     },
     externalLink: {
-      label: { en: 'Try the web version', ja: 'Web 版を試す', zh: '打开网页版' },
-      url: 'https://music-theory-king-pro.pages.dev/',
+      label: { en: 'Official Website', ja: '公式サイト', zh: '官方网站' },
+      url: 'https://superbasicmusic.rokajun.com/',
     },
     note: {
-      en: 'The iOS app is being prepared for the App Store. The web build linked above is an earlier version and still carries the old name.',
-      ja: 'iOS 版は App Store 申請の準備中です。上の Web 版は以前のバージョンで、旧名称のまま公開されています。',
-      zh: 'iOS 版正在准备上架 App Store。上面的网页版是较早的版本，仍沿用旧名称。',
+      en: 'The iOS app is being prepared for the App Store.',
+      ja: 'iOS 版は App Store 申請の準備中です。',
+      zh: 'iOS 版正在准备上架 App Store。',
     },
   },
   {
@@ -330,6 +340,108 @@ export const PROJECTS: Project[] = [
       en: 'On the App Store since August 2026 — still listed under its launch name, “Cram Japanese”, until the next update.',
       ja: '2026年8月から App Store で公開中。ストアの表記は次のアップデートまでリリース時の「Cram Japanese」のままです。',
       zh: '2026 年 8 月起在 App Store 上线。商店页面到下次更新前仍显示发布时的名字「抱佛腳日語」。',
+    },
+  },
+  {
+    id: 'japan-driving-theory',
+    title: { en: 'Japan Driving Theory Prep', ja: '日本免許速通手帳', zh: '日本免许速通手册' },
+    year: '2026',
+    category: 'Design',
+    description: {
+      en: 'A practice app for the written test of a Japanese driving licence — foreign-licence conversion, provisional and full. 1,487 questions in Chinese, Japanese and English, every answer checked against the statutes.',
+      ja: '日本の運転免許・学科試験の問題集アプリ。外免切替・仮免・本免に対応。1487問を中国語・日本語・英語で収録し、すべての答えを法令原文と照合している。',
+      zh: '日本驾照学科考试的练习 App，覆盖外免切替、仮免与本免。1487 道题，中日英三语，每一道的答案都逐条对过法令原文。',
+    },
+    technique: {
+      en: 'iOS (WKWebView) and Android, vanilla JS, Web Audio, statutes from e-Gov',
+      ja: 'iOS (WKWebView) / Android, Vanilla JS, Web Audio, e-Gov の法令原文',
+      zh: 'iOS (WKWebView) 与 Android、原生 JS、Web Audio、e-Gov 法令原文',
+    },
+    thumbnail: d0,
+    thumbnailStyle: 'icon',
+    thumbnailScale: 0.5,
+    images: [d1, d2, d3],
+    details: {
+      en: [
+        'Commercial question banks copy from each other, so their mistakes travel together. Every answer here was checked article by article against the Road Traffic Act, its Order and Regulations, the Signs Order and the Road Structure Ordinance; where one did not match current law it is corrected, with the article cited beneath the question.',
+        'Weak areas are ranked by the marks you would actually lose on the test — a topic’s share of the bank × your error rate × the test length — not by raw error rate.',
+        'Your whole history, scaled to the real test: a projected score and how many marks short of the pass line you are.',
+        'Progressive mode re-asks the points you missed, but swaps in a question on the same point with the opposite statement, so you learn the rule rather than the question.',
+        '136 road-sign images, each checked against Appendix 1 of the Signs Order, plus key-rule cards for 20 topics and 7 kinds of trap question.',
+        'No AI anywhere: marking and analysis are local rules, so it works fully offline. Free, no purchases, no account needed.',
+      ],
+      ja: [
+        '市販の問題集は互いに写し合っているため、誤りも一緒に受け継がれる。本アプリは道路交通法・同施行令・同施行規則・標識命令・道路構造令の原文と一条ずつ照合し、現行法令と合わないものは訂正したうえで、根拠条文を問題の下に明示している。',
+        '弱点は不正解率ではなく「本試験で何問落とすか」で並べる（分野の出題比率 × 不正解率 × 本試験の問題数）。',
+        'これまでの記録を本試験の問題数に換算し、予測得点と合格ラインまでの差を表示。',
+        '「段階的」モードは間違えた論点を、同じ論点で正誤が逆の問題に差し替えて再出題する。問題番号ではなく規則を覚えるため。',
+        '道路標識の図 136 枚（標識命令 別表第一と一枚ずつ照合）、20分野の要点カード、ひっかけ 7 類型の解説を収録。',
+        'AI は使っていない。採点も分析も端末内のルールで行うため、完全にオフラインで動く。完全無料・課金なし・登録不要。',
+      ],
+      zh: [
+        '市面上的题库互相抄，错的地方一起错。这里每一道题都拿道路交通法、施行令、施行规则、标识命令和道路构造令的原文逐条核对过；和现行法令不符的都已改正，并在题目下方列出所依据的条文。',
+        '弱项按「真考试预计丢几题」排序（考点占比 × 你的错误率 × 考试题量），而不是只看错误率。',
+        '把全部做题记录折算到真考试的题量，直接告诉你预计得分、离合格线还差几题。',
+        '「循序渐进」模式会重考你错过的考点，但换成同一考点里说法相反的题——背的是规则，不是题号。',
+        '136 张道路标识图（按标识命令别表第一逐张核对），20 个考点的知识卡，7 类陷阱题的拆解。',
+        '完全不接 AI：判题和分析都是本地规则，可以完全离线使用。免费、无内购、不用注册。',
+      ],
+    },
+    externalLink: {
+      label: { en: 'Get it on the App Store', ja: 'App Store で入手', zh: '在 App Store 下载' },
+      url: 'https://apps.apple.com/app/id6810967086',
+    },
+  },
+  {
+    id: 'cook-coach',
+    title: { en: 'Cook Coach', ja: 'Cook Coach', zh: '手把手厨房' },
+    year: '2026',
+    category: 'Design',
+    description: {
+      en: 'An iOS app that turns a recipe screenshot or photo into step-by-step cooking you can follow with messy hands. The guide is Coco, a hopping chef’s hat with no hands — who still insists on teaching you hand in hand.',
+      ja: 'レシピのスクリーンショットや写真を、手が汚れたままでも追える一歩ずつの調理ガイドに変える iOS アプリ。案内役は Coco——手のないコック帽なのに、手取り足取り教えると言い張る。',
+      zh: '把菜谱截图或照片变成一步一步、手上沾着油也能照着做的做菜引导。带路的是 Coco——一顶会蹦的厨师帽，没有手，却坚持要「手把手」教你做菜。',
+    },
+    technique: {
+      en: 'SwiftUI, Live Activities, watchOS, Cloudflare Workers / D1, AI recipe parsing',
+      ja: 'SwiftUI, Live Activity, watchOS, Cloudflare Workers / D1, AI によるレシピ解析',
+      zh: 'SwiftUI、Live Activity、watchOS、Cloudflare Workers / D1、AI 菜谱解析',
+    },
+    thumbnail: c0,
+    thumbnailDark: c0d,
+    thumbnailStyle: 'icon',
+    thumbnailScale: 0.5,
+    images: [c1, c2, c3, c4],
+    details: {
+      en: [
+        'Screenshot a recipe from the web or photograph one from a book; AI breaks it into steps — what to do, which ingredients, how hot, how long to wait.',
+        'Steps that involve waiting start their own timer, counting down on the Lock Screen and in the Dynamic Island.',
+        'Say “next step” or “how long left” and keep greasy fingers off the screen. Prop the phone up sideways, or follow along on Apple Watch.',
+        'About 400 built-in recipes, a cooking calendar, and a photo wall for the dishes you made.',
+        'Poke Coco and it reminds you what to prep while you wait. Poke it too often and it gets grumpy.',
+        'Typewriter and risograph look: monospaced type, a generated paper texture, and a colour for each kind of kitchen action.',
+      ],
+      ja: [
+        'Web のレシピをスクショ、または本のレシピを撮影すると、AI が手順に分解する。何をするか、どの材料か、火加減、待ち時間まで。',
+        '待ちが必要な手順は自動でタイマーが始まり、ロック画面とダイナミックアイランドでカウントダウンする。',
+        '「次」「あと何分」と話しかければ、油のついた指で画面に触れなくていい。横向きに立てかけても、Apple Watch でも追える。',
+        '内蔵レシピ約 400 品、料理カレンダー、作った料理の写真ウォール。',
+        'Coco をつつくと、待ち時間に下ごしらえしておくことを教えてくれる。つつきすぎると怒る。',
+        'タイプライターとリソグラフ印刷の質感：等幅フォント、生成した紙の地紋、調理動作ごとに分けた色。',
+      ],
+      zh: [
+        '网上的菜谱截个图、书上的拍张照，AI 就拆成一步一步：做什么、用哪些料、开多大火、要等多久。',
+        '需要等待的步骤自动计时，锁屏和灵动岛上一直显示倒计时。',
+        '说「下一步」「还要多久」就能翻页，油乎乎的手不用碰屏幕。手机横着靠墙放、或者戴着 Apple Watch 都能跟着做。',
+        '约 400 道内置菜谱、下厨日历，以及钉满成品照片的照片墙。',
+        '戳一下 Coco，它会提醒你趁等待时先备下一步的料；戳太多下它会生气。',
+        '打字机 + risograph 印刷的视觉：等宽字体、程序生成的纸张质感、每种烹饪动作各有一种颜色。',
+      ],
+    },
+    note: {
+      en: 'Coming soon to the App Store.',
+      ja: 'App Store で近日公開予定。',
+      zh: '即将在 App Store 上线。',
     },
   },
 ];

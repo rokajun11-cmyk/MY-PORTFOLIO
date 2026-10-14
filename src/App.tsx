@@ -242,23 +242,32 @@ const ProjectCard = ({ project, index }: { project: Project; index: number; key?
       className={cn(
         'group relative overflow-hidden',
         // Icon cards carry a lot of empty space, so they stay shorter on phones.
-        isIcon ? 'aspect-[5/4] md:aspect-[4/5]' : 'aspect-[4/5] bg-zinc-100',
+        isIcon ? 'md:aspect-[4/5]' : 'aspect-[4/5] bg-zinc-100',
       )}
     >
       <Link to={`/project/${project.id}`}>
         {isIcon ? (
           // An icon is already a finished graphic: it only grows on hover. No scrim,
           // no blur — those exist to make text readable over a photo.
-          <div className="w-full h-full flex items-center justify-center">
-            <img
-              src={thumbnail}
-              alt={title}
-              style={{ ['--icon-scale' as string]: String(project.thumbnailScale ?? 0.66) }}
-              className="icon-thumb object-contain transition-transform duration-700 group-hover:scale-[1.08]"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
-            <div className="absolute inset-x-0 bottom-0 px-6 pb-6 text-center text-ink opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              {caption}
+          //
+          // The caption must never land on the icon. From md up it fades in at the
+          // card's foot while the icon rises to make room. Below md it sits under the
+          // icon — tight to its own icon and far from the next one, or it reads as
+          // either's — folded until hovered where there is a mouse (.icon-caption).
+          <div className="md:w-full md:h-full">
+            <div className="pt-6 md:pt-0 md:h-full flex items-center justify-center">
+              <img
+                src={thumbnail}
+                alt={title}
+                style={{ ['--icon-scale' as string]: String(project.thumbnailScale ?? 0.66) }}
+                className="icon-thumb object-contain transition-transform duration-700 md:group-hover:scale-[1.08] md:group-hover:-translate-y-16"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
+            <div className="icon-caption grid grid-rows-[1fr] text-center text-ink md:block md:absolute md:inset-x-0 md:bottom-0 md:px-6 md:opacity-0 md:group-hover:opacity-100 md:transition-opacity md:duration-500">
+              <div className="overflow-hidden md:overflow-visible">
+                <div className="mt-2 pb-14 md:mt-0 md:pb-6">{caption}</div>
+              </div>
             </div>
           </div>
         ) : (

@@ -161,18 +161,34 @@
   text-shadow: none;
 }
 
-/* App-icon thumbnails. On phones the card is short and the icon is bound by
-   width; from md up it follows the per-project --icon-scale so each icon keeps
-   the optical weight it was tuned for. */
+/* App-icon thumbnails. On phones the icon is bound by width and its caption
+   sits right under it; from md up it follows the per-project --icon-scale so
+   each icon keeps the optical weight it was tuned for. */
 .icon-thumb {
-  max-width: 62%;
-  max-height: 78%;
+  max-width: 56%;
 }
 
 @media (min-width: 768px) {
   .icon-thumb {
     max-width: calc(var(--icon-scale, 0.5) * 100%);
     max-height: calc(var(--icon-scale, 0.5) * 100%);
+  }
+}
+
+/* One card per row below md. With a mouse, an icon card's caption stays folded
+   until the card is hovered, then unfolds and pushes the cards below down.
+   Touch screens can't hover — a folded caption would never be seen there — so
+   without a pointer it stays open. */
+@media (max-width: 767px) and (hover: hover) {
+  .icon-caption {
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+  }
+
+  .group:hover .icon-caption {
+    grid-template-rows: 1fr;
+    opacity: 1;
   }
 }
 
