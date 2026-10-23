@@ -337,9 +337,9 @@ export const PROJECTS: Project[] = [
       url: 'https://apps.apple.com/app/id6790152322',
     },
     note: {
-      en: 'On the App Store since August 2026 — still listed under its launch name, “Cram Japanese”, until the next update.',
-      ja: '2026年8月から App Store で公開中。ストアの表記は次のアップデートまでリリース時の「Cram Japanese」のままです。',
-      zh: '2026 年 8 月起在 App Store 上线。商店页面到下次更新前仍显示发布时的名字「抱佛腳日語」。',
+      en: 'On the App Store since August 2026.',
+      ja: '2026年8月から App Store で公開中。',
+      zh: '2026 年 8 月起在 App Store 上线。',
     },
   },
   {
@@ -438,10 +438,9 @@ export const PROJECTS: Project[] = [
         '打字机 + risograph 印刷的视觉：等宽字体、程序生成的纸张质感、每种烹饪动作各有一种颜色。',
       ],
     },
-    note: {
-      en: 'Coming soon to the App Store.',
-      ja: 'App Store で近日公開予定。',
-      zh: '即将在 App Store 上线。',
+    externalLink: {
+      label: { en: 'Official Website', ja: '公式サイト', zh: '官方网站' },
+      url: 'https://cookcoach.rokajun.com/',
     },
   },
 ];
